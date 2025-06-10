@@ -10,64 +10,53 @@ import { Input } from "@/components/ui/input"
 
 export default function DashboardContent() {
   return (
-    <div className="flex flex-col h-screen bg-black">
+    <div className="flex flex-col min-h-screen bg-gray-100">
       {/* Header */}
-      <header className="sticky top-0 z-auto border-b border-zinc-800 bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/60">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <SidebarTrigger />
-            <h1 className="text-2xl font-bold text-white">
-              Task Master
-            </h1>
+      <header className="flex items-center justify-between p-4 bg-white shadow-sm">
+        <div className="flex items-center gap-4">
+          <SidebarTrigger />
+          <h1 className="text-xl font-semibold md:text-2xl">Task Master</h1>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="relative">
+            <Search className="absolute left-2 top-2.5 h-5 w-5 text-gray-400" />
+            <Input className="pl-9 w-32 sm:w-48" placeholder="Search..." />
           </div>
-          <div className="flex items-center gap-3">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2" />
-              <Input
-                placeholder="Search tasks, teams, or projects..."
-                className="pl-7 w-92 lg:w-96 bg-zinc-900 border-zinc-800 text-white"
-              />
-            </div>
-            <Button variant="outline" className="flex items-center gap-2 bg-zinc-900 ">
-              <Bot className="h-4 w-4 " />
-              Ask AI
-            </Button>
-            <Button variant="ghost" size="icon">
-              <Bell className="h-5 w-5 " />
-            </Button>
-          </div>
+          <Button variant="ghost" size="icon">
+            <Bell className="h-5 w-5" />
+          </Button>
+          <Button variant="ghost" size="icon">
+            <Bot className="h-5 w-5" />
+            <span className="ml-2 hidden sm:inline">Ask AI</span>
+          </Button>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-auto p-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-          {/* Team Overview - spans 2 columns on large screens */}
-          <div className="lg:col-span-2">
+      <main className="flex-1 p-4 md:p-6">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+          {/* Team Overview - spans full width on mobile, 2 columns on laptop */}
+          <div className="md:col-span-2">
             <TeamOverview />
           </div>
-          
-          {/* Performance Analytics - spans 1 column */}
-          <div className="lg:col-span-1">
+
+          {/* Performance Analytics - spans full width on mobile, 1 column on laptop */}
+          <div className="md:col-span-1">
             <PerformanceAnalytics />
           </div>
-        </div>
-        
-        <div className="grid grid-cols-1 gap-6 mb-6">
-          {/* Task Board - spans full width */}
-          <div className="col-span-1">
+
+          {/* Task Board - spans full width on all screens */}
+          <div className="md:col-span-3">
             <TaskBoard />
           </div>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Compensation Tracker - spans 2 columns */}
-          <div className="lg:col-span-2">
+
+          {/* Compensation Tracker - spans full width on mobile, 2 columns on laptop */}
+          <div className="md:col-span-2">
             <CompensationTracker />
           </div>
-          
-          {/* Assignment History - spans 1 column */}
-          <div className="lg:col-span-1">
+
+          {/* Assignment History - spans full width on mobile, 1 column on laptop */}
+          <div className="md:col-span-1">
             <AssignmentHistory />
           </div>
         </div>
