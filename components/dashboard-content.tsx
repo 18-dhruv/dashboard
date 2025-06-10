@@ -12,7 +12,7 @@ export default function DashboardContent() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
       {/* Header */}
-      <header className="flex items-center justify-between p-4 bg-white shadow-sm">
+      <header className="flex items-center justify-between p-4 bg-black shadow-sm">
         <div className="flex items-center gap-4">
           <SidebarTrigger />
           <h1 className="text-xl font-semibold md:text-2xl">Task Master</h1>
@@ -33,7 +33,7 @@ export default function DashboardContent() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 p-4 md:p-6">
+      <main className="flex-1 p-4 md:p-6 bg-black">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
           {/* Team Overview - spans full width on mobile, 2 columns on laptop */}
           <div className="md:col-span-2">
